@@ -1,0 +1,31 @@
+name: DoIt Test CI
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch/jerry branches
+  push:
+    branches:
+      - jerry-*
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # The flutter action needs java so include it
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      # Include the flutter action
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.0.3'
+      # Get flutter packages
+      - run: flutter pub get
+      # Build
+      - run: flutter build apk
+      # Format
+      - run: ./scripts/dart-format
+      # Test
+      - run: flutter test -r expanded
