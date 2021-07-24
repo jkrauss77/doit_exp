@@ -25,7 +25,8 @@ jobs:
       - run: doit fibonacci
       - run: doit call_func
       - run: doit count
-      - run: doit format && doit format
+      - run: doit format
+      - run: doit format
       - run: mkdir build && doit compile
       - run: doit modify
       - run: doit t*
