@@ -26,10 +26,10 @@ jobs:
       - run: doit call_func
       - run: doit count
       - run: doit format && doit format
-      - run: doit compile
+      - run: mkdir build && doit compile
       - run: doit modify
       - run: doit t*
-      - run: doit fail
       - run: doit x
       - run: doit title
       - run: doit package
+      - run: doit fail
