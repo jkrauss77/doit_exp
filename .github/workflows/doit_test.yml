@@ -10,9 +10,8 @@ on:
 
 jobs:
   playing-around:
-    runs-on: ubuntu-latest
+    runs-on: docker.io/jerrykrauss/doit-test:1
     steps:
-      - run: apt-get install -y -q python3-doit=0.31.1-3.2ubuntu1 python3 clang
       - run: doit list
       - run: doit help
       - run: doit help echo
