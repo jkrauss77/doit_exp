@@ -10,8 +10,8 @@ on:
 
 jobs:
   playing-around:
-    container:
-      image: octocat/ci-image:latest
+    runs-on: 
+        image: docker.io/jerrykrauss/doit-test:1
     steps:
       - run: doit list
       - run: doit help
