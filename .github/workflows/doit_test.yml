@@ -10,7 +10,7 @@ on:
 
 jobs:
   playing-around:
-    runs:
+    runs-on:
       using: 'docker'
       image: 'Dockerfile'
     steps:
