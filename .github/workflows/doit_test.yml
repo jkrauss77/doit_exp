@@ -9,23 +9,23 @@ on:
       - main
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
+  playing-around:
+    using: 'docker'
+    image: 'Dockerfile'
     steps:
-      - uses: actions/checkout@v2
-      # The flutter action needs java so include it
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
-      # Include the flutter action
-      - uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '2.0.3'
-      # Get flutter packages
-      - run: flutter pub get
-      # Build
-      - run: flutter build apk
-      # Format
-      - run: ./scripts/dart-format
-      # Test
-      - run: flutter test -r expanded
+      - run: doit list
+      - run: doit help
+      - run: doit help echo
+      - run: doit echo --arg "hello world!"
+      - run: doit hello_world
+      - run: doit fibonacci
+      - run: doit call_func
+      - run: doit count
+      - run: doit format && doit format
+      - run: doit compile
+      - run: doit modify
+      - run: doit t*
+      - run: doit fail
+      - run: doit x
+      - run: doit title
+      - run: doit package
